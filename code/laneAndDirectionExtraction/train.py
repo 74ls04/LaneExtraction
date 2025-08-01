@@ -1,6 +1,9 @@
 from dataloader import  ParallelDataLoader
 from model import LaneModel
 
+import tensorflow as tf
+tf.compat.v1.disable_v2_behavior()
+
 import os 
 import sys 
 sys.path.append(os.path.dirname(os.path.dirname(sys.path[0])))

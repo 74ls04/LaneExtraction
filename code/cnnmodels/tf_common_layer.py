@@ -1,17 +1,17 @@
 import numpy as np
 import tensorflow as tf
-import tflearn
-from tensorflow.contrib.layers.python.layers import batch_norm
-import tensorflow.contrib as tf_contrib
 
-weight_regularizer = tf_contrib.layers.l2_regularizer(0.0001)
+from tf_slim.layers import batch_norm
+import tf_slim as slim
+
+weight_regularizer = slim.l2_regularizer(0.0001)
 
 # for reuse 
 
 def uniform(shape, scale=0.05, name=None):
 	"""Uniform init."""
-	initial = tf.random_uniform(shape, minval=-scale, maxval=scale, dtype=tf.float32)
-	return tf.get_variable(name, shape=shape, initializer = tf.initializer.random_uniform(minval=-scale, maxval = scale), dtype=tf.float32)
+	initial = tf.random.uniform(shape, minval=-scale, maxval=scale, dtype=tf.float32)
+	return tf.compat.v1.get_variable(name, shape=shape, initializer = tf.initializer.random_uniform(minval=-scale, maxval = scale), dtype=tf.float32)
 	#return tf.Variable(initial, name=name, dtype=tf.float32)
 
 
@@ -19,14 +19,14 @@ def glorot(shape, name=None):
 	"""Glorot & Bengio (AISTATS 2010) init."""
 	#init_range = np.sqrt(6.0/(shape[0]+shape[1]))
 	#initial = tf.random_uniform(shape, minval=-init_range, maxval=init_range, dtype=tf.float32)
-	return tf.get_variable(name, shape = shape, initializer = tf.glorot_uniform_initializer(), dtype=tf.float32)
+	return tf.compat.v1.get_variable(name, shape = shape, initializer = tf.compat.v1.glorot_uniform_initializer(), dtype=tf.float32)
 	#return tf.Variable(initial, name=name)
 
 
 def zeros(shape, name=None):
 	"""All zeros."""
 	initial = tf.zeros(shape, dtype=tf.float32)
-	return tf.get_variable(name, shape=shape, initializer=tf.constant_initializer(0.0), dtype=tf.float32)
+	return tf.compat.v1.get_variable(name, shape=shape, initializer=tf.compat.v1.constant_initializer(0.0), dtype=tf.float32)
 
 	#return tf.Variable(initial, name=name)
 
@@ -34,7 +34,7 @@ def zeros(shape, name=None):
 def ones(shape, name=None):
 	"""All ones."""
 	initial = tf.ones(shape, dtype=tf.float32)
-	return tf.get_variable(name, shape=shape, initializer=tf.constant_initializer(1.0), dtype=tf.float32)
+	return tf.compat.v1.get_variable(name, shape=shape, initializer=tf.compat.v1.constant_initializer(1.0), dtype=tf.float32)
 
 	#return tf.Variable(initial, name=name)
 
@@ -42,7 +42,7 @@ def ones(shape, name=None):
 def dot(x, y, sparse=False):
 	"""Wrapper for tf.matmul (sparse vs dense)."""
 	if sparse:
-		res = tf.sparse_tensor_dense_matmul(x, y)
+		res = tf.sparse.sparse_dense_matmul(x, y)
 	else:
 		res = tf.matmul(x, y)
 	return res
@@ -53,21 +53,21 @@ def create_conv_layer(name, input_tensor, in_channels, out_channels, is_training
 		input_tensor = tf.pad(input_tensor, [[0, 0], [(kx+(dilation-1)*2) //2, (kx+(dilation-1)*2)//2], [(kx+(dilation-1)*2)//2, (kx+(dilation-1)*2)//2], [0, 0]], mode="CONSTANT")
 
 
-	weights = tf.get_variable(name+'weights', shape=[kx, ky, in_channels, out_channels],
-			initializer=tf.truncated_normal_initializer(stddev=np.sqrt(0.02 / kx / ky / in_channels)),
+	weights = tf.compat.v1.get_variable(name+'weights', shape=[kx, ky, in_channels, out_channels],
+			initializer=tf.compat.v1.truncated_normal_initializer(stddev=np.sqrt(0.02 / kx / ky / in_channels)),
 			regularizer=weight_regularizer,
 			dtype=tf.float32
 	)
-	biases = tf.get_variable(name+'biases', shape=[out_channels], initializer=tf.constant_initializer(0.0),regularizer=weight_regularizer, dtype=tf.float32)
+	biases = tf.compat.v1.get_variable(name+'biases', shape=[out_channels], initializer=tf.compat.v1.constant_initializer(0.0),regularizer=weight_regularizer, dtype=tf.float32)
 
 	
 	if deconv == False:
 		try:
-			t = tf.nn.conv2d(input_tensor, weights, [1, stride_x, stride_y, 1], padding=padding, dilations = dilation)
+			t = tf.nn.conv2d(input_tensor, filters=weights, strides=[1, stride_x, stride_y, 1], padding=padding, dilations = dilation)
 			print("create dilation layer with tensorflow 1.15 format")
 		except:
 			print("try dilation with tensorflow 1.13 format")
-			t = tf.nn.conv2d(input_tensor, weights, [1, stride_x, stride_y, 1], padding=padding, dilations = [1,dilation,dilation,1])
+			t = tf.nn.conv2d(input_tensor, filters=weights, strides=[1, stride_x, stride_y, 1], padding=padding, dilations = [1,dilation,dilation,1])
 			
 		s = tf.nn.bias_add(t, biases)
 

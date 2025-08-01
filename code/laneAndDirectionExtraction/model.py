@@ -10,16 +10,16 @@ class LaneModel():
 	def __init__(self, sess, size = 640, batchsize = 4, sdmap = False, backbone = "resnet34v3"):
 		self.sess = sess 
 		self.batchsize = batchsize
-		self.input = tf.placeholder(dtype = tf.float32, shape = [None, size, size, 3])
-		self.target = tf.placeholder(dtype = tf.float32, shape = [None, size, size, 1])
-		self.target_normal = tf.placeholder(dtype = tf.float32, shape = [None, size, size, 2])
-		self.sdmap = tf.placeholder(dtype = tf.float32, shape = [None, size, size, 1])
+		self.input = tf.compat.v1.placeholder(dtype = tf.float32, shape = [None, size, size, 3])
+		self.target = tf.compat.v1.placeholder(dtype = tf.float32, shape = [None, size, size, 1])
+		self.target_normal = tf.compat.v1.placeholder(dtype = tf.float32, shape = [None, size, size, 2])
+		self.sdmap = tf.compat.v1.placeholder(dtype = tf.float32, shape = [None, size, size, 1])
 		self.backbone = backbone
-		self.mask = tf.placeholder(dtype = tf.float32, shape = [None, size, size, 1])
+		self.mask = tf.compat.v1.placeholder(dtype = tf.float32, shape = [None, size, size, 1])
 		
 		
-		self.lr = tf.placeholder(dtype=tf.float32)
-		self.is_training = tf.placeholder(tf.bool, name="istraining")
+		self.lr = tf.compat.v1.placeholder(dtype=tf.float32)
+		self.is_training = tf.compat.v1.placeholder(tf.bool, name="istraining")
 
 		self.hassdmap = sdmap
 
@@ -46,11 +46,11 @@ class LaneModel():
 
 		self.output = tf.concat([output_seg, output_direction], axis=3)
 
-		self.train_op = tf.train.AdamOptimizer(learning_rate=self.lr).minimize(self.loss)
+		self.train_op = tf.compat.v1.train.AdamOptimizer(learning_rate=self.lr).minimize(self.loss)
 		
 		
-		self.sess.run(tf.global_variables_initializer())
-		self.saver = tf.train.Saver(max_to_keep=21)
+		self.sess.run(tf.compat.v1.global_variables_initializer())
+		self.saver = tf.compat.v1.train.Saver(max_to_keep=21)
 	
 	def singlescaleloss(self, p, target, mask):
 		t1 = target
@@ -60,7 +60,7 @@ class LaneModel():
 			pp0 = p[:,:,:,0:1]
 			pp1 = p[:,:,:,1:2]
 
-			loss =  - (t * pp0 + (1-t) * pp1 - tf.log(tf.exp(pp0) + tf.exp(pp1)))
+			loss =  - (t * pp0 + (1-t) * pp1 - tf.math.log(tf.exp(pp0) + tf.exp(pp1)))
 			loss = tf.reduce_mean(loss * mask)
 			return loss
 
@@ -83,7 +83,7 @@ class LaneModel():
 			pp0 = p[:,:,:,0:1]
 			pp1 = p[:,:,:,1:2]
 
-			loss =  - (t * pp0 + (1-t) * pp1 - tf.log(tf.exp(pp0) + tf.exp(pp1)))
+			loss =  - (t * pp0 + (1-t) * pp1 - tf.math.log(tf.exp(pp0) + tf.exp(pp1)))
 			loss = tf.reduce_mean(loss * mask)
 			return loss
 		return ce_loss(p, t1)

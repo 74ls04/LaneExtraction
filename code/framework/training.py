@@ -35,8 +35,8 @@ class TrainingFramework():
 				
 
 
-		gpu_options = tf.GPUOptions(allow_growth=True)
-		with tf.Session(config=tf.ConfigProto(gpu_options=gpu_options)) as sess:
+		gpu_options = tf.compat.v1.GPUOptions(allow_growth=True)
+		with tf.compat.v1.Session(config=tf.compat.v1.ConfigProto(gpu_options=gpu_options)) as sess:
 			model = self.createModel(sess)
 			dataloader = self.createDataloader("training")
 			# if use_validation:

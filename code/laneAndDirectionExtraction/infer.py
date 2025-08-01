@@ -40,8 +40,8 @@ for i in range((windowsize2 - windowsize1) // 2 ):
 output = np.zeros_like(img)
 weights = np.zeros_like(img) + 0.0001
 
-gpu_options = tf.GPUOptions(allow_growth=True)
-with tf.Session(config=tf.ConfigProto(gpu_options=gpu_options)) as sess:
+gpu_options = tf.compat.v1.GPUOptions(allow_growth=True)
+with tf.compat.v1.Session(config=tf.compat.v1.ConfigProto(gpu_options=gpu_options)) as sess:
 	model = LaneModel(sess, cnninput, batchsize=1, sdmap=False, backbone = backbone)
 	#model.restoreModel("modelrun3_640_resnet34v3/model196900")
 	#model.restoreModel("modelfinetune_run1_640_resnet34v3/model52215")

@@ -1,0 +1,499 @@
+TensorFlow 2.0 Upgrade Script
+-----------------------------
+Converted 38 files
+Detected 33 issues that require attention
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+File: code/cnnmodels/tf_common_layer.py
+--------------------------------------------------------------------------------
+code/cnnmodels/tf_common_layer.py:14:8: WARNING: tf.get_variable requires manual check. tf.get_variable returns ResourceVariables by default in 2.0, which have well-defined semantics and are stricter about shapes. You can disable this behavior by passing use_resource=False, or by calling tf.compat.v1.disable_resource_variables().
+code/cnnmodels/tf_common_layer.py:22:8: WARNING: tf.get_variable requires manual check. tf.get_variable returns ResourceVariables by default in 2.0, which have well-defined semantics and are stricter about shapes. You can disable this behavior by passing use_resource=False, or by calling tf.compat.v1.disable_resource_variables().
+code/cnnmodels/tf_common_layer.py:29:8: WARNING: tf.get_variable requires manual check. tf.get_variable returns ResourceVariables by default in 2.0, which have well-defined semantics and are stricter about shapes. You can disable this behavior by passing use_resource=False, or by calling tf.compat.v1.disable_resource_variables().
+code/cnnmodels/tf_common_layer.py:37:8: WARNING: tf.get_variable requires manual check. tf.get_variable returns ResourceVariables by default in 2.0, which have well-defined semantics and are stricter about shapes. You can disable this behavior by passing use_resource=False, or by calling tf.compat.v1.disable_resource_variables().
+code/cnnmodels/tf_common_layer.py:56:11: WARNING: tf.get_variable requires manual check. tf.get_variable returns ResourceVariables by default in 2.0, which have well-defined semantics and are stricter about shapes. You can disable this behavior by passing use_resource=False, or by calling tf.compat.v1.disable_resource_variables().
+code/cnnmodels/tf_common_layer.py:61:10: WARNING: tf.get_variable requires manual check. tf.get_variable returns ResourceVariables by default in 2.0, which have well-defined semantics and are stricter about shapes. You can disable this behavior by passing use_resource=False, or by calling tf.compat.v1.disable_resource_variables().
+--------------------------------------------------------------------------------
+File: code/turningLaneExtraction/model.py
+--------------------------------------------------------------------------------
+code/turningLaneExtraction/model.py:135:2: WARNING: *.save requires manual check. (This warning is only applicable if the code saves a tf.Keras model) Keras model.save now saves to the Tensorflow SavedModel format by default, instead of HDF5. To continue saving to HDF5, add the argument save_format='h5' to the save() function.
+--------------------------------------------------------------------------------
+File: code/turningLaneExtraction/train.py
+--------------------------------------------------------------------------------
+code/turningLaneExtraction/train.py:96:4: WARNING: *.save requires manual check. (This warning is only applicable if the code saves a tf.Keras model) Keras model.save now saves to the Tensorflow SavedModel format by default, instead of HDF5. To continue saving to HDF5, add the argument save_format='h5' to the save() function.
+code/turningLaneExtraction/train.py:97:4: WARNING: *.save requires manual check. (This warning is only applicable if the code saves a tf.Keras model) Keras model.save now saves to the Tensorflow SavedModel format by default, instead of HDF5. To continue saving to HDF5, add the argument save_format='h5' to the save() function.
+code/turningLaneExtraction/train.py:98:4: WARNING: *.save requires manual check. (This warning is only applicable if the code saves a tf.Keras model) Keras model.save now saves to the Tensorflow SavedModel format by default, instead of HDF5. To continue saving to HDF5, add the argument save_format='h5' to the save() function.
+code/turningLaneExtraction/train.py:100:4: WARNING: *.save requires manual check. (This warning is only applicable if the code saves a tf.Keras model) Keras model.save now saves to the Tensorflow SavedModel format by default, instead of HDF5. To continue saving to HDF5, add the argument save_format='h5' to the save() function.
+code/turningLaneExtraction/train.py:101:4: WARNING: *.save requires manual check. (This warning is only applicable if the code saves a tf.Keras model) Keras model.save now saves to the Tensorflow SavedModel format by default, instead of HDF5. To continue saving to HDF5, add the argument save_format='h5' to the save() function.
+code/turningLaneExtraction/train.py:125:4: WARNING: *.save requires manual check. (This warning is only applicable if the code saves a tf.Keras model) Keras model.save now saves to the Tensorflow SavedModel format by default, instead of HDF5. To continue saving to HDF5, add the argument save_format='h5' to the save() function.
+--------------------------------------------------------------------------------
+File: code/turningLaneValidation/model.py
+--------------------------------------------------------------------------------
+code/turningLaneValidation/model.py:174:2: WARNING: *.save requires manual check. (This warning is only applicable if the code saves a tf.Keras model) Keras model.save now saves to the Tensorflow SavedModel format by default, instead of HDF5. To continue saving to HDF5, add the argument save_format='h5' to the save() function.
+--------------------------------------------------------------------------------
+File: code/turningLaneValidation/train.py
+--------------------------------------------------------------------------------
+code/turningLaneValidation/train.py:104:4: WARNING: *.save requires manual check. (This warning is only applicable if the code saves a tf.Keras model) Keras model.save now saves to the Tensorflow SavedModel format by default, instead of HDF5. To continue saving to HDF5, add the argument save_format='h5' to the save() function.
+code/turningLaneValidation/train.py:105:4: WARNING: *.save requires manual check. (This warning is only applicable if the code saves a tf.Keras model) Keras model.save now saves to the Tensorflow SavedModel format by default, instead of HDF5. To continue saving to HDF5, add the argument save_format='h5' to the save() function.
+code/turningLaneValidation/train.py:106:4: WARNING: *.save requires manual check. (This warning is only applicable if the code saves a tf.Keras model) Keras model.save now saves to the Tensorflow SavedModel format by default, instead of HDF5. To continue saving to HDF5, add the argument save_format='h5' to the save() function.
+code/turningLaneValidation/train.py:108:4: WARNING: *.save requires manual check. (This warning is only applicable if the code saves a tf.Keras model) Keras model.save now saves to the Tensorflow SavedModel format by default, instead of HDF5. To continue saving to HDF5, add the argument save_format='h5' to the save() function.
+code/turningLaneValidation/train.py:109:4: WARNING: *.save requires manual check. (This warning is only applicable if the code saves a tf.Keras model) Keras model.save now saves to the Tensorflow SavedModel format by default, instead of HDF5. To continue saving to HDF5, add the argument save_format='h5' to the save() function.
+code/turningLaneValidation/train.py:110:4: WARNING: *.save requires manual check. (This warning is only applicable if the code saves a tf.Keras model) Keras model.save now saves to the Tensorflow SavedModel format by default, instead of HDF5. To continue saving to HDF5, add the argument save_format='h5' to the save() function.
+code/turningLaneValidation/train.py:111:4: WARNING: *.save requires manual check. (This warning is only applicable if the code saves a tf.Keras model) Keras model.save now saves to the Tensorflow SavedModel format by default, instead of HDF5. To continue saving to HDF5, add the argument save_format='h5' to the save() function.
+code/turningLaneValidation/train.py:138:4: WARNING: *.save requires manual check. (This warning is only applicable if the code saves a tf.Keras model) Keras model.save now saves to the Tensorflow SavedModel format by default, instead of HDF5. To continue saving to HDF5, add the argument save_format='h5' to the save() function.
+--------------------------------------------------------------------------------
+File: code/laneAndDirectionExtraction/infer.py
+--------------------------------------------------------------------------------
+code/laneAndDirectionExtraction/infer.py:80:1: WARNING: *.save requires manual check. (This warning is only applicable if the code saves a tf.Keras model) Keras model.save now saves to the Tensorflow SavedModel format by default, instead of HDF5. To continue saving to HDF5, add the argument save_format='h5' to the save() function.
+code/laneAndDirectionExtraction/infer.py:88:1: WARNING: *.save requires manual check. (This warning is only applicable if the code saves a tf.Keras model) Keras model.save now saves to the Tensorflow SavedModel format by default, instead of HDF5. To continue saving to HDF5, add the argument save_format='h5' to the save() function.
+--------------------------------------------------------------------------------
+File: code/laneAndDirectionExtraction/model.py
+--------------------------------------------------------------------------------
+code/laneAndDirectionExtraction/model.py:131:2: WARNING: *.save requires manual check. (This warning is only applicable if the code saves a tf.Keras model) Keras model.save now saves to the Tensorflow SavedModel format by default, instead of HDF5. To continue saving to HDF5, add the argument save_format='h5' to the save() function.
+--------------------------------------------------------------------------------
+File: code/laneAndDirectionExtraction/train.py
+--------------------------------------------------------------------------------
+code/laneAndDirectionExtraction/train.py:97:4: WARNING: *.save requires manual check. (This warning is only applicable if the code saves a tf.Keras model) Keras model.save now saves to the Tensorflow SavedModel format by default, instead of HDF5. To continue saving to HDF5, add the argument save_format='h5' to the save() function.
+code/laneAndDirectionExtraction/train.py:98:4: WARNING: *.save requires manual check. (This warning is only applicable if the code saves a tf.Keras model) Keras model.save now saves to the Tensorflow SavedModel format by default, instead of HDF5. To continue saving to HDF5, add the argument save_format='h5' to the save() function.
+code/laneAndDirectionExtraction/train.py:99:4: WARNING: *.save requires manual check. (This warning is only applicable if the code saves a tf.Keras model) Keras model.save now saves to the Tensorflow SavedModel format by default, instead of HDF5. To continue saving to HDF5, add the argument save_format='h5' to the save() function.
+code/laneAndDirectionExtraction/train.py:101:4: WARNING: *.save requires manual check. (This warning is only applicable if the code saves a tf.Keras model) Keras model.save now saves to the Tensorflow SavedModel format by default, instead of HDF5. To continue saving to HDF5, add the argument save_format='h5' to the save() function.
+code/laneAndDirectionExtraction/train.py:108:4: WARNING: *.save requires manual check. (This warning is only applicable if the code saves a tf.Keras model) Keras model.save now saves to the Tensorflow SavedModel format by default, instead of HDF5. To continue saving to HDF5, add the argument save_format='h5' to the save() function.
+code/laneAndDirectionExtraction/train.py:110:4: WARNING: *.save requires manual check. (This warning is only applicable if the code saves a tf.Keras model) Keras model.save now saves to the Tensorflow SavedModel format by default, instead of HDF5. To continue saving to HDF5, add the argument save_format='h5' to the save() function.
+code/laneAndDirectionExtraction/train.py:116:4: WARNING: *.save requires manual check. (This warning is only applicable if the code saves a tf.Keras model) Keras model.save now saves to the Tensorflow SavedModel format by default, instead of HDF5. To continue saving to HDF5, add the argument save_format='h5' to the save() function.
+--------------------------------------------------------------------------------
+File: code/framework/model.py
+--------------------------------------------------------------------------------
+code/framework/model.py:37:2: WARNING: *.save requires manual check. (This warning is only applicable if the code saves a tf.Keras model) Keras model.save now saves to the Tensorflow SavedModel format by default, instead of HDF5. To continue saving to HDF5, add the argument save_format='h5' to the save() function.
+================================================================================
+Detailed log follows:
+
+================================================================================
+================================================================================
+Input tree: 'code'
+================================================================================
+--------------------------------------------------------------------------------
+Processing file 'code/create_training_data.py'
+ outputting to 'code_v2/create_training_data.py'
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'code/cnnmodels/tf_common_layer.py'
+ outputting to 'code_v2/cnnmodels/tf_common_layer.py'
+--------------------------------------------------------------------------------
+
+13:11: INFO: Renamed 'tf.random_uniform' to 'tf.random.uniform'
+14:8: WARNING: tf.get_variable requires manual check. tf.get_variable returns ResourceVariables by default in 2.0, which have well-defined semantics and are stricter about shapes. You can disable this behavior by passing use_resource=False, or by calling tf.compat.v1.disable_resource_variables().
+14:8: INFO: Renamed 'tf.get_variable' to 'tf.compat.v1.get_variable'
+22:8: WARNING: tf.get_variable requires manual check. tf.get_variable returns ResourceVariables by default in 2.0, which have well-defined semantics and are stricter about shapes. You can disable this behavior by passing use_resource=False, or by calling tf.compat.v1.disable_resource_variables().
+22:8: INFO: Renamed 'tf.get_variable' to 'tf.compat.v1.get_variable'
+22:59: INFO: tf.glorot_uniform_initializer requires manual check. Initializers no longer have the dtype argument in the constructor or partition_info argument in the __call__ method.
+The calls have been converted to compat.v1 for safety (even though they may already have been correct).
+22:59: INFO: Renamed 'tf.glorot_uniform_initializer' to 'tf.compat.v1.glorot_uniform_initializer'
+29:8: WARNING: tf.get_variable requires manual check. tf.get_variable returns ResourceVariables by default in 2.0, which have well-defined semantics and are stricter about shapes. You can disable this behavior by passing use_resource=False, or by calling tf.compat.v1.disable_resource_variables().
+29:8: INFO: Renamed 'tf.get_variable' to 'tf.compat.v1.get_variable'
+29:55: INFO: tf.constant_initializer requires manual check. Initializers no longer have the dtype argument in the constructor or partition_info argument in the __call__ method.
+The calls have been converted to compat.v1 for safety (even though they may already have been correct).
+29:55: INFO: Renamed 'tf.constant_initializer' to 'tf.compat.v1.constant_initializer'
+37:8: WARNING: tf.get_variable requires manual check. tf.get_variable returns ResourceVariables by default in 2.0, which have well-defined semantics and are stricter about shapes. You can disable this behavior by passing use_resource=False, or by calling tf.compat.v1.disable_resource_variables().
+37:8: INFO: Renamed 'tf.get_variable' to 'tf.compat.v1.get_variable'
+37:55: INFO: tf.constant_initializer requires manual check. Initializers no longer have the dtype argument in the constructor or partition_info argument in the __call__ method.
+The calls have been converted to compat.v1 for safety (even though they may already have been correct).
+37:55: INFO: Renamed 'tf.constant_initializer' to 'tf.compat.v1.constant_initializer'
+45:8: INFO: Renamed 'tf.sparse_tensor_dense_matmul' to 'tf.sparse.sparse_dense_matmul'
+56:11: WARNING: tf.get_variable requires manual check. tf.get_variable returns ResourceVariables by default in 2.0, which have well-defined semantics and are stricter about shapes. You can disable this behavior by passing use_resource=False, or by calling tf.compat.v1.disable_resource_variables().
+56:11: INFO: Renamed 'tf.get_variable' to 'tf.compat.v1.get_variable'
+57:15: INFO: tf.truncated_normal_initializer requires manual check. Initializers no longer have the dtype argument in the constructor or partition_info argument in the __call__ method.
+The calls have been converted to compat.v1 for safety (even though they may already have been correct).
+57:15: INFO: Renamed 'tf.truncated_normal_initializer' to 'tf.compat.v1.truncated_normal_initializer'
+61:10: WARNING: tf.get_variable requires manual check. tf.get_variable returns ResourceVariables by default in 2.0, which have well-defined semantics and are stricter about shapes. You can disable this behavior by passing use_resource=False, or by calling tf.compat.v1.disable_resource_variables().
+61:10: INFO: Renamed 'tf.get_variable' to 'tf.compat.v1.get_variable'
+61:75: INFO: tf.constant_initializer requires manual check. Initializers no longer have the dtype argument in the constructor or partition_info argument in the __call__ method.
+The calls have been converted to compat.v1 for safety (even though they may already have been correct).
+61:75: INFO: Renamed 'tf.constant_initializer' to 'tf.compat.v1.constant_initializer'
+66:7: INFO: Added keywords to args of function 'tf.nn.conv2d'
+66:7: INFO: Renamed keyword argument for tf.nn.conv2d from filter to filters
+70:7: INFO: Added keywords to args of function 'tf.nn.conv2d'
+70:7: INFO: Renamed keyword argument for tf.nn.conv2d from filter to filters
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'code/cnnmodels/classifier.py'
+ outputting to 'code_v2/cnnmodels/classifier.py'
+--------------------------------------------------------------------------------
+
+26:6: INFO: Renamed 'tf.variable_scope' to 'tf.compat.v1.variable_scope'
+161:6: INFO: Renamed 'tf.variable_scope' to 'tf.compat.v1.variable_scope'
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'code/cnnmodels/resnet34unet.py'
+ outputting to 'code_v2/cnnmodels/resnet34unet.py'
+--------------------------------------------------------------------------------
+
+54:6: INFO: Renamed 'tf.variable_scope' to 'tf.compat.v1.variable_scope'
+345:6: INFO: Renamed 'tf.variable_scope' to 'tf.compat.v1.variable_scope'
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'code/cnnmodels/resnet.py'
+ outputting to 'code_v2/cnnmodels/resnet.py'
+--------------------------------------------------------------------------------
+
+21:9: INFO: Renamed 'tf.variable_scope' to 'tf.compat.v1.variable_scope'
+30:9: INFO: Renamed 'tf.variable_scope' to 'tf.compat.v1.variable_scope'
+37:9: INFO: Renamed 'tf.variable_scope' to 'tf.compat.v1.variable_scope'
+59:9: INFO: Renamed 'tf.variable_scope' to 'tf.compat.v1.variable_scope'
+145:26: INFO: Renamed 'tf.nn.softmax_cross_entropy_with_logits_v2' to 'tf.nn.softmax_cross_entropy_with_logits'
+153:9: INFO: Renamed 'tf.variable_scope' to 'tf.compat.v1.variable_scope'
+201:9: INFO: Renamed 'tf.variable_scope' to 'tf.compat.v1.variable_scope'
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'code/cnnmodels/__init__.py'
+ outputting to 'code_v2/cnnmodels/__init__.py'
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'code/cnnmodels/resnet18unet.py'
+ outputting to 'code_v2/cnnmodels/resnet18unet.py'
+--------------------------------------------------------------------------------
+
+120:9: INFO: Renamed 'tf.variable_scope' to 'tf.compat.v1.variable_scope'
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'code/hdmapeditor/create_dataset_for_evaluation_onewayroad.py'
+ outputting to 'code_v2/hdmapeditor/create_dataset_for_evaluation_onewayroad.py'
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'code/hdmapeditor/create_dataset_for_evaluation_ways.py'
+ outputting to 'code_v2/hdmapeditor/create_dataset_for_evaluation_ways.py'
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'code/hdmapeditor/create_dataset_for_training_vectors.py'
+ outputting to 'code_v2/hdmapeditor/create_dataset_for_training_vectors.py'
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'code/hdmapeditor/create_dataset_for_training_sdmap.py'
+ outputting to 'code_v2/hdmapeditor/create_dataset_for_training_sdmap.py'
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'code/hdmapeditor/create_dataset_for_training.py'
+ outputting to 'code_v2/hdmapeditor/create_dataset_for_training.py'
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'code/hdmapeditor/roadstructure.py'
+ outputting to 'code_v2/hdmapeditor/roadstructure.py'
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'code/hdmapeditor/main.py'
+ outputting to 'code_v2/hdmapeditor/main.py'
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'code/hdmapeditor/create_dataset_for_evaluation_vector.py'
+ outputting to 'code_v2/hdmapeditor/create_dataset_for_evaluation_vector.py'
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'code/hdmapeditor/create_dataset_for_training_onewayroad.py'
+ outputting to 'code_v2/hdmapeditor/create_dataset_for_training_onewayroad.py'
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'code/hdmapeditor/create_dataset_for_evaluation_sdmap.py'
+ outputting to 'code_v2/hdmapeditor/create_dataset_for_evaluation_sdmap.py'
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'code/hdmapeditor/__init__.py'
+ outputting to 'code_v2/hdmapeditor/__init__.py'
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'code/hdmapeditor/create_dataset_for_training_ways.py'
+ outputting to 'code_v2/hdmapeditor/create_dataset_for_training_ways.py'
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'code/hdmapeditor/create_dataset_for_evaluation.py'
+ outputting to 'code_v2/hdmapeditor/create_dataset_for_evaluation.py'
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'code/turningLaneExtraction/dataloader.py'
+ outputting to 'code_v2/turningLaneExtraction/dataloader.py'
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'code/turningLaneExtraction/infer.py'
+ outputting to 'code_v2/turningLaneExtraction/infer.py'
+--------------------------------------------------------------------------------
+
+11:22: INFO: Renamed 'tf.GPUOptions' to 'tf.compat.v1.GPUOptions'
+12:20: INFO: Renamed 'tf.Session' to 'tf.compat.v1.Session'
+12:38: INFO: Renamed 'tf.ConfigProto' to 'tf.compat.v1.ConfigProto'
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'code/turningLaneExtraction/__init__.py'
+ outputting to 'code_v2/turningLaneExtraction/__init__.py'
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'code/turningLaneExtraction/model.py'
+ outputting to 'code_v2/turningLaneExtraction/model.py'
+--------------------------------------------------------------------------------
+
+15:15: INFO: Renamed 'tf.placeholder' to 'tf.compat.v1.placeholder'
+16:19: INFO: Renamed 'tf.placeholder' to 'tf.compat.v1.placeholder'
+17:18: INFO: Renamed 'tf.placeholder' to 'tf.compat.v1.placeholder'
+18:17: INFO: Renamed 'tf.placeholder' to 'tf.compat.v1.placeholder'
+19:16: INFO: Renamed 'tf.placeholder' to 'tf.compat.v1.placeholder'
+20:22: INFO: Renamed 'tf.placeholder' to 'tf.compat.v1.placeholder'
+22:23: INFO: Renamed 'tf.placeholder' to 'tf.compat.v1.placeholder'
+32:12: INFO: Renamed 'tf.placeholder' to 'tf.compat.v1.placeholder'
+33:21: INFO: Renamed 'tf.placeholder' to 'tf.compat.v1.placeholder'
+34:12: INFO: Renamed 'tf.global_variables' to 'tf.compat.v1.global_variables'
+37:7: INFO: Renamed 'tf.variable_scope' to 'tf.compat.v1.variable_scope'
+43:18: INFO: Renamed 'tf.train.AdamOptimizer' to 'tf.compat.v1.train.AdamOptimizer'
+45:16: INFO: Renamed 'tf.global_variables_initializer' to 'tf.compat.v1.global_variables_initializer'
+47:15: INFO: Renamed 'tf.train.Saver' to 'tf.compat.v1.train.Saver'
+57:38: INFO: Renamed 'tf.log' to 'tf.math.log'
+88:38: INFO: Renamed 'tf.log' to 'tf.math.log'
+135:2: WARNING: *.save requires manual check. (This warning is only applicable if the code saves a tf.Keras model) Keras model.save now saves to the Tensorflow SavedModel format by default, instead of HDF5. To continue saving to HDF5, add the argument save_format='h5' to the save() function.
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'code/turningLaneExtraction/train.py'
+ outputting to 'code_v2/turningLaneExtraction/train.py'
+--------------------------------------------------------------------------------
+
+96:4: WARNING: *.save requires manual check. (This warning is only applicable if the code saves a tf.Keras model) Keras model.save now saves to the Tensorflow SavedModel format by default, instead of HDF5. To continue saving to HDF5, add the argument save_format='h5' to the save() function.
+97:4: WARNING: *.save requires manual check. (This warning is only applicable if the code saves a tf.Keras model) Keras model.save now saves to the Tensorflow SavedModel format by default, instead of HDF5. To continue saving to HDF5, add the argument save_format='h5' to the save() function.
+98:4: WARNING: *.save requires manual check. (This warning is only applicable if the code saves a tf.Keras model) Keras model.save now saves to the Tensorflow SavedModel format by default, instead of HDF5. To continue saving to HDF5, add the argument save_format='h5' to the save() function.
+100:4: WARNING: *.save requires manual check. (This warning is only applicable if the code saves a tf.Keras model) Keras model.save now saves to the Tensorflow SavedModel format by default, instead of HDF5. To continue saving to HDF5, add the argument save_format='h5' to the save() function.
+101:4: WARNING: *.save requires manual check. (This warning is only applicable if the code saves a tf.Keras model) Keras model.save now saves to the Tensorflow SavedModel format by default, instead of HDF5. To continue saving to HDF5, add the argument save_format='h5' to the save() function.
+125:4: WARNING: *.save requires manual check. (This warning is only applicable if the code saves a tf.Keras model) Keras model.save now saves to the Tensorflow SavedModel format by default, instead of HDF5. To continue saving to HDF5, add the argument save_format='h5' to the save() function.
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'code/turningLaneValidation/dataloader.py'
+ outputting to 'code_v2/turningLaneValidation/dataloader.py'
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'code/turningLaneValidation/infer.py'
+ outputting to 'code_v2/turningLaneValidation/infer.py'
+--------------------------------------------------------------------------------
+
+11:22: INFO: Renamed 'tf.GPUOptions' to 'tf.compat.v1.GPUOptions'
+12:20: INFO: Renamed 'tf.Session' to 'tf.compat.v1.Session'
+12:38: INFO: Renamed 'tf.ConfigProto' to 'tf.compat.v1.ConfigProto'
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'code/turningLaneValidation/__init__.py'
+ outputting to 'code_v2/turningLaneValidation/__init__.py'
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'code/turningLaneValidation/model.py'
+ outputting to 'code_v2/turningLaneValidation/model.py'
+--------------------------------------------------------------------------------
+
+16:15: INFO: Renamed 'tf.placeholder' to 'tf.compat.v1.placeholder'
+17:19: INFO: Renamed 'tf.placeholder' to 'tf.compat.v1.placeholder'
+18:18: INFO: Renamed 'tf.placeholder' to 'tf.compat.v1.placeholder'
+19:17: INFO: Renamed 'tf.placeholder' to 'tf.compat.v1.placeholder'
+20:16: INFO: Renamed 'tf.placeholder' to 'tf.compat.v1.placeholder'
+21:22: INFO: Renamed 'tf.placeholder' to 'tf.compat.v1.placeholder'
+23:23: INFO: Renamed 'tf.placeholder' to 'tf.compat.v1.placeholder'
+33:12: INFO: Renamed 'tf.placeholder' to 'tf.compat.v1.placeholder'
+34:21: INFO: Renamed 'tf.placeholder' to 'tf.compat.v1.placeholder'
+35:12: INFO: Renamed 'tf.global_variables' to 'tf.compat.v1.global_variables'
+38:7: INFO: Renamed 'tf.variable_scope' to 'tf.compat.v1.variable_scope'
+42:7: INFO: Renamed 'tf.variable_scope' to 'tf.compat.v1.variable_scope'
+42:40: INFO: Renamed 'tf.AUTO_REUSE' to 'tf.compat.v1.AUTO_REUSE'
+48:7: INFO: Renamed 'tf.variable_scope' to 'tf.compat.v1.variable_scope'
+56:35: INFO: Changing labels arg of tf.nn.softmax_cross_entropy_with_logits to tf.stop_gradient(labels). Please check this transformation.
+
+60:18: INFO: Renamed 'tf.train.AdamOptimizer' to 'tf.compat.v1.train.AdamOptimizer'
+62:16: INFO: Renamed 'tf.global_variables_initializer' to 'tf.compat.v1.global_variables_initializer'
+73:15: INFO: Renamed 'tf.train.Saver' to 'tf.compat.v1.train.Saver'
+83:38: INFO: Renamed 'tf.log' to 'tf.math.log'
+114:38: INFO: Renamed 'tf.log' to 'tf.math.log'
+174:2: WARNING: *.save requires manual check. (This warning is only applicable if the code saves a tf.Keras model) Keras model.save now saves to the Tensorflow SavedModel format by default, instead of HDF5. To continue saving to HDF5, add the argument save_format='h5' to the save() function.
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'code/turningLaneValidation/train.py'
+ outputting to 'code_v2/turningLaneValidation/train.py'
+--------------------------------------------------------------------------------
+
+104:4: WARNING: *.save requires manual check. (This warning is only applicable if the code saves a tf.Keras model) Keras model.save now saves to the Tensorflow SavedModel format by default, instead of HDF5. To continue saving to HDF5, add the argument save_format='h5' to the save() function.
+105:4: WARNING: *.save requires manual check. (This warning is only applicable if the code saves a tf.Keras model) Keras model.save now saves to the Tensorflow SavedModel format by default, instead of HDF5. To continue saving to HDF5, add the argument save_format='h5' to the save() function.
+106:4: WARNING: *.save requires manual check. (This warning is only applicable if the code saves a tf.Keras model) Keras model.save now saves to the Tensorflow SavedModel format by default, instead of HDF5. To continue saving to HDF5, add the argument save_format='h5' to the save() function.
+108:4: WARNING: *.save requires manual check. (This warning is only applicable if the code saves a tf.Keras model) Keras model.save now saves to the Tensorflow SavedModel format by default, instead of HDF5. To continue saving to HDF5, add the argument save_format='h5' to the save() function.
+109:4: WARNING: *.save requires manual check. (This warning is only applicable if the code saves a tf.Keras model) Keras model.save now saves to the Tensorflow SavedModel format by default, instead of HDF5. To continue saving to HDF5, add the argument save_format='h5' to the save() function.
+110:4: WARNING: *.save requires manual check. (This warning is only applicable if the code saves a tf.Keras model) Keras model.save now saves to the Tensorflow SavedModel format by default, instead of HDF5. To continue saving to HDF5, add the argument save_format='h5' to the save() function.
+111:4: WARNING: *.save requires manual check. (This warning is only applicable if the code saves a tf.Keras model) Keras model.save now saves to the Tensorflow SavedModel format by default, instead of HDF5. To continue saving to HDF5, add the argument save_format='h5' to the save() function.
+138:4: WARNING: *.save requires manual check. (This warning is only applicable if the code saves a tf.Keras model) Keras model.save now saves to the Tensorflow SavedModel format by default, instead of HDF5. To continue saving to HDF5, add the argument save_format='h5' to the save() function.
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'code/laneAndDirectionExtraction/dataloader.py'
+ outputting to 'code_v2/laneAndDirectionExtraction/dataloader.py'
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'code/laneAndDirectionExtraction/infer.py'
+ outputting to 'code_v2/laneAndDirectionExtraction/infer.py'
+--------------------------------------------------------------------------------
+
+43:14: INFO: Renamed 'tf.GPUOptions' to 'tf.compat.v1.GPUOptions'
+44:5: INFO: Renamed 'tf.Session' to 'tf.compat.v1.Session'
+44:23: INFO: Renamed 'tf.ConfigProto' to 'tf.compat.v1.ConfigProto'
+80:1: WARNING: *.save requires manual check. (This warning is only applicable if the code saves a tf.Keras model) Keras model.save now saves to the Tensorflow SavedModel format by default, instead of HDF5. To continue saving to HDF5, add the argument save_format='h5' to the save() function.
+88:1: WARNING: *.save requires manual check. (This warning is only applicable if the code saves a tf.Keras model) Keras model.save now saves to the Tensorflow SavedModel format by default, instead of HDF5. To continue saving to HDF5, add the argument save_format='h5' to the save() function.
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'code/laneAndDirectionExtraction/model.py'
+ outputting to 'code_v2/laneAndDirectionExtraction/model.py'
+--------------------------------------------------------------------------------
+
+13:15: INFO: Renamed 'tf.placeholder' to 'tf.compat.v1.placeholder'
+14:16: INFO: Renamed 'tf.placeholder' to 'tf.compat.v1.placeholder'
+15:23: INFO: Renamed 'tf.placeholder' to 'tf.compat.v1.placeholder'
+16:15: INFO: Renamed 'tf.placeholder' to 'tf.compat.v1.placeholder'
+18:14: INFO: Renamed 'tf.placeholder' to 'tf.compat.v1.placeholder'
+21:12: INFO: Renamed 'tf.placeholder' to 'tf.compat.v1.placeholder'
+22:21: INFO: Renamed 'tf.placeholder' to 'tf.compat.v1.placeholder'
+49:18: INFO: Renamed 'tf.train.AdamOptimizer' to 'tf.compat.v1.train.AdamOptimizer'
+52:16: INFO: Renamed 'tf.global_variables_initializer' to 'tf.compat.v1.global_variables_initializer'
+53:15: INFO: Renamed 'tf.train.Saver' to 'tf.compat.v1.train.Saver'
+63:38: INFO: Renamed 'tf.log' to 'tf.math.log'
+86:38: INFO: Renamed 'tf.log' to 'tf.math.log'
+131:2: WARNING: *.save requires manual check. (This warning is only applicable if the code saves a tf.Keras model) Keras model.save now saves to the Tensorflow SavedModel format by default, instead of HDF5. To continue saving to HDF5, add the argument save_format='h5' to the save() function.
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'code/laneAndDirectionExtraction/train.py'
+ outputting to 'code_v2/laneAndDirectionExtraction/train.py'
+--------------------------------------------------------------------------------
+
+97:4: WARNING: *.save requires manual check. (This warning is only applicable if the code saves a tf.Keras model) Keras model.save now saves to the Tensorflow SavedModel format by default, instead of HDF5. To continue saving to HDF5, add the argument save_format='h5' to the save() function.
+98:4: WARNING: *.save requires manual check. (This warning is only applicable if the code saves a tf.Keras model) Keras model.save now saves to the Tensorflow SavedModel format by default, instead of HDF5. To continue saving to HDF5, add the argument save_format='h5' to the save() function.
+99:4: WARNING: *.save requires manual check. (This warning is only applicable if the code saves a tf.Keras model) Keras model.save now saves to the Tensorflow SavedModel format by default, instead of HDF5. To continue saving to HDF5, add the argument save_format='h5' to the save() function.
+101:4: WARNING: *.save requires manual check. (This warning is only applicable if the code saves a tf.Keras model) Keras model.save now saves to the Tensorflow SavedModel format by default, instead of HDF5. To continue saving to HDF5, add the argument save_format='h5' to the save() function.
+108:4: WARNING: *.save requires manual check. (This warning is only applicable if the code saves a tf.Keras model) Keras model.save now saves to the Tensorflow SavedModel format by default, instead of HDF5. To continue saving to HDF5, add the argument save_format='h5' to the save() function.
+110:4: WARNING: *.save requires manual check. (This warning is only applicable if the code saves a tf.Keras model) Keras model.save now saves to the Tensorflow SavedModel format by default, instead of HDF5. To continue saving to HDF5, add the argument save_format='h5' to the save() function.
+116:4: WARNING: *.save requires manual check. (This warning is only applicable if the code saves a tf.Keras model) Keras model.save now saves to the Tensorflow SavedModel format by default, instead of HDF5. To continue saving to HDF5, add the argument save_format='h5' to the save() function.
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'code/framework/plot.py'
+ outputting to 'code_v2/framework/plot.py'
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'code/framework/training.py'
+ outputting to 'code_v2/framework/training.py'
+--------------------------------------------------------------------------------
+
+38:16: INFO: Renamed 'tf.GPUOptions' to 'tf.compat.v1.GPUOptions'
+39:7: INFO: Renamed 'tf.Session' to 'tf.compat.v1.Session'
+39:25: INFO: Renamed 'tf.ConfigProto' to 'tf.compat.v1.ConfigProto'
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'code/framework/__init__.py'
+ outputting to 'code_v2/framework/__init__.py'
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'code/framework/model.py'
+ outputting to 'code_v2/framework/model.py'
+--------------------------------------------------------------------------------
+
+14:22: INFO: Renamed 'tf.placeholder' to 'tf.compat.v1.placeholder'
+15:31: INFO: Renamed 'tf.placeholder' to 'tf.compat.v1.placeholder'
+19:18: INFO: Renamed 'tf.train.AdamOptimizer' to 'tf.compat.v1.train.AdamOptimizer'
+33:16: INFO: Renamed 'tf.global_variables_initializer' to 'tf.compat.v1.global_variables_initializer'
+34:15: INFO: Renamed 'tf.train.Saver' to 'tf.compat.v1.train.Saver'
+37:2: WARNING: *.save requires manual check. (This warning is only applicable if the code saves a tf.Keras model) Keras model.save now saves to the Tensorflow SavedModel format by default, instead of HDF5. To continue saving to HDF5, add the argument save_format='h5' to the save() function.
+50:38: INFO: Renamed 'tf.log' to 'tf.math.log'
+--------------------------------------------------------------------------------
+

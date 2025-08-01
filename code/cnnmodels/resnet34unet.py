@@ -1,7 +1,7 @@
 import numpy as np
 import tensorflow as tf
-import tflearn
-from tensorflow.contrib.layers.python.layers import batch_norm
+
+from tf_slim.layers import batch_norm
 import random
 import pickle 
 import scipy.ndimage as nd 
@@ -10,14 +10,14 @@ import math
 from PIL import Image
 import sys 
 import os 
-from resnet import resblock as residual_block
-from resnet import relu
-from resnet import batch_norm as batch_norm_resnet  
-from resnet import resblock
-from resnet import bottle_resblock
-from resnet import conv
-import tf_common_layer as common
-import tensorflow.contrib as tf_contrib
+from .resnet import resblock as residual_block
+from .resnet import relu
+from .resnet import batch_norm as batch_norm_resnet  
+from .resnet import resblock
+from .resnet import bottle_resblock
+from .resnet import conv
+import cnnmodels.tf_common_layer as common
+import tf_slim as slim
 
 def resnet34unet(x, is_training, ch_in = 3, ch_out = 2, ch = 64):
 	x, _, _ = common.create_conv_layer('enc_1', x, ch_in, ch, kx = 7, ky = 7, stride_x = 2, stride_y = 2, is_training = is_training, batchnorm = False)
@@ -47,13 +47,13 @@ def resnet34unet(x, is_training, ch_in = 3, ch_out = 2, ch = 64):
 
 	return x 
 
-weight_init = tf_contrib.layers.variance_scaling_initializer()
-weight_regularizer = tf_contrib.layers.l2_regularizer(0.0001)
+weight_init = slim.variance_scaling_initializer()
+weight_regularizer = slim.l2_regularizer(0.0001)
 
 def fully_conneted(x, units, use_bias=True, scope='fully_0'):
-	with tf.variable_scope(scope):
+	with tf.compat.v1.variable_scope(scope):
 		#x = flatten(x)
-		x = tf.layers.dense(x, units=units, kernel_initializer=weight_init, kernel_regularizer=weight_regularizer, use_bias=use_bias)
+		x = tf.compat.v1.layers.dense(x, units=units, kernel_initializer=weight_init, kernel_regularizer=weight_regularizer, use_bias=use_bias)
 
 		return x
 
@@ -342,7 +342,7 @@ def get_residual_layer(res_n) :
 
 
 def resnet_template(x, is_training=True, reuse=False, res_n = 18, ch = 64, feature_activation = tf.nn.relu):
-	with tf.variable_scope("resnet", reuse=reuse):
+	with tf.compat.v1.variable_scope("resnet", reuse=reuse):
 		
 		residual_block = resblock
 		if res_n < 50 :

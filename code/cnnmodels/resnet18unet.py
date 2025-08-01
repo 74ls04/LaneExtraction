@@ -1,7 +1,7 @@
 import numpy as np
 import tensorflow as tf
-import tflearn
-from tensorflow.contrib.layers.python.layers import batch_norm
+
+import tf_slim as slim
 import random
 import pickle 
 import scipy.ndimage as nd 
@@ -117,7 +117,7 @@ def get_residual_layer(res_n) :
 
 
 def resnet_template(x, is_training=True, reuse=False, res_n = 18, ch = 64, feature_activation = tf.nn.relu):
-    with tf.variable_scope("resnet", reuse=reuse):
+    with tf.compat.v1.variable_scope("resnet", reuse=reuse):
         
         residual_block = resblock
         if res_n < 50 :

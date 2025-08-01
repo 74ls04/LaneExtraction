@@ -12,14 +12,14 @@ class LinkModel():
 	def __init__(self, sess, size = 640, batchsize = 4):
 		self.sess = sess 
 		self.batchsize = batchsize
-		self.input = tf.placeholder(dtype = tf.float32, shape = [None, size, size, 3])
-		self.connector = tf.placeholder(dtype = tf.float32, shape = [None, size, size, 7])
-		self.target_t = tf.placeholder(dtype = tf.float32, shape = [None, size, size, 1])
-		self.context = tf.placeholder(dtype = tf.float32, shape = [None, size, size, 2])
-		self.target = tf.placeholder(dtype = tf.float32, shape = [None, size, size, 1])
-		self.target_label = tf.placeholder(dtype = tf.float32, shape = [None, 1])
+		self.input = tf.compat.v1.placeholder(dtype = tf.float32, shape = [None, size, size, 3])
+		self.connector = tf.compat.v1.placeholder(dtype = tf.float32, shape = [None, size, size, 7])
+		self.target_t = tf.compat.v1.placeholder(dtype = tf.float32, shape = [None, size, size, 1])
+		self.context = tf.compat.v1.placeholder(dtype = tf.float32, shape = [None, size, size, 2])
+		self.target = tf.compat.v1.placeholder(dtype = tf.float32, shape = [None, size, size, 1])
+		self.target_label = tf.compat.v1.placeholder(dtype = tf.float32, shape = [None, 1])
 		
-		self.position_code = tf.placeholder(dtype = tf.float32, shape = [None, size, size, 2])
+		self.position_code = tf.compat.v1.placeholder(dtype = tf.float32, shape = [None, size, size, 2])
 		self.position_code_np = np.zeros((batchsize, size, size, 2))
 
 		for i in range(size):
@@ -29,22 +29,22 @@ class LinkModel():
 
 
 
-		self.lr = tf.placeholder(dtype=tf.float32)
-		self.is_training = tf.placeholder(tf.bool, name="istraining")
-		num = len(tf.global_variables())
+		self.lr = tf.compat.v1.placeholder(dtype=tf.float32)
+		self.is_training = tf.compat.v1.placeholder(tf.bool, name="istraining")
+		num = len(tf.compat.v1.global_variables())
 		input_data = tf.concat([self.input, self.connector, self.context, self.position_code], axis=3)
 			
-		with tf.variable_scope("seg"):
+		with tf.compat.v1.variable_scope("seg"):
 			output_seg = resnet34unet_v3(input_data, self.is_training, ch_in = 14, ch_out = 2, feature_out=False)
 		self.output = tf.nn.softmax(output_seg)
 		
 		self.loss = self.singlescaleloss(output_seg[:,:,:,0:2], self.target, 1.0)
 		
-		self.train_op = tf.train.AdamOptimizer(learning_rate=self.lr).minimize(self.loss)
+		self.train_op = tf.compat.v1.train.AdamOptimizer(learning_rate=self.lr).minimize(self.loss)
 		
-		self.sess.run(tf.global_variables_initializer())
+		self.sess.run(tf.compat.v1.global_variables_initializer())
 		
-		self.saver = tf.train.Saver(max_to_keep=5)
+		self.saver = tf.compat.v1.train.Saver(max_to_keep=5)
 	
 	def singlescaleloss(self, p, target, mask, keepbatchdim = False):
 		t1 = target
@@ -54,7 +54,7 @@ class LinkModel():
 			pp0 = p[:,:,:,0:1]
 			pp1 = p[:,:,:,1:2]
 
-			loss =  - (t * pp0 + (1-t) * pp1 - tf.log(tf.exp(pp0) + tf.exp(pp1)))
+			loss =  - (t * pp0 + (1-t) * pp1 - tf.math.log(tf.exp(pp0) + tf.exp(pp1)))
 			if keepbatchdim:
 				loss = tf.reduce_mean(loss * mask, axis=[1,2,3])
 			else:
@@ -85,7 +85,7 @@ class LinkModel():
 			pp0 = p[:,:,:,0:1]
 			pp1 = p[:,:,:,1:2]
 
-			loss =  - (t * pp0 + (1-t) * pp1 - tf.log(tf.exp(pp0) + tf.exp(pp1)))
+			loss =  - (t * pp0 + (1-t) * pp1 - tf.math.log(tf.exp(pp0) + tf.exp(pp1)))
 			loss = tf.reduce_mean(loss * mask)
 			return loss
 		return ce_loss(p, t1)
